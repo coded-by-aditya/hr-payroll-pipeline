@@ -1,0 +1,6 @@
+.venv/
+.env
+landing/
+__pycache__/
+target/
+logs/
