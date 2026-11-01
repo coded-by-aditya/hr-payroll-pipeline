@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: dim_employee
+    columns:
+      - name: employee_key
+        data_tests: [unique, not_null]
+
+  - name: dim_department
+    columns:
+      - name: department_key
+        data_tests: [unique, not_null]
+
+  - name: dim_pay_component
+    columns:
+      - name: pay_component_key
+        data_tests: [unique, not_null]
+      - name: pay_component
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["BASE", "OVERTIME", "TAX", "SUPER"]
+
+  - name: dim_date
+    columns:
+      - name: date_key
+        data_tests: [unique, not_null]
+
+  - name: fct_payroll
+    columns:
+      - name: payroll_line_key
+        data_tests: [unique, not_null]
+      - name: employee_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_employee')
+                field: employee_key
+      - name: department_key
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_department')
+                field: department_key
+      - name: date_key
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
