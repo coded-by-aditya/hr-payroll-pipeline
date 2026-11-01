@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    database: HR_DW
+    schema: RAW
+    tables:
+      - name: employees
+      - name: departments
+      - name: payroll_lines
