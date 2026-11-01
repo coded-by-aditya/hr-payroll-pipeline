@@ -1,0 +1,7 @@
+dbt-core~=1.12.0
+dbt-snowflake~=1.12.0
+snowflake-connector-python[pandas]
+pandas
+pyyaml
+faker
+python-dotenv
