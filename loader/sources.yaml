@@ -1,0 +1,17 @@
+landing_dir: landing
+sources:
+  - name: employees
+    file_pattern: employees.json
+    format: json
+    target_table: EMPLOYEES
+    required_fields: [employee_id, last_modified]
+  - name: departments
+    file_pattern: departments.csv
+    format: csv
+    target_table: DEPARTMENTS
+    required_fields: [department_code]
+  - name: payroll_lines
+    file_pattern: payroll_lines.csv
+    format: csv
+    target_table: PAYROLL_LINES
+    required_fields: [pay_run_id, employee_id, pay_component, amount]
